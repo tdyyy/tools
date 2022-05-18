@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.services.BaseService;
+import com.example.demo.services.FeignUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,8 +38,7 @@ public class HelloController {
     }
     @RequestMapping("/src/test")
     public String srcTest(){
-        FeignUntil.SrcInvoke srcInvoke = FeignUntil.getSrcInvoke();
-        JSONObject jsonObject1 = srcInvoke.querySrcJsonValue("/sch_queryTodaySrc", "{\"unit_id\": \"111\",\"dep_id\": \"3892\",\"doc_id\": \"19718\",\"real_time\": \"1\",\"his\": \"1\",\"sch_id_list\": [\"62426eac9f37ff05ae30641f\", \"62426ea89f37ff05ae30638d\"]}");
-        return jsonObject1.toJSONString();
+        String str = FeignUtil.getSrcInvoke("/sch_queryTodaySrc", "{\"unit_id\": \"111\",\"dep_id\": \"3892\",\"doc_id\": \"19718\",\"real_time\": \"1\",\"his\": \"1\",\"sch_id_list\": [\"62426eac9f37ff05ae30641f\", \"62426ea89f37ff05ae30638d\"]}");
+        return str;
     }
 }

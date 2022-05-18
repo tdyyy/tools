@@ -25,6 +25,13 @@
             <version>11.8</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.github.openfeign.form/feign-form -->
+        <dependency>
+            <groupId>io.github.openfeign.form</groupId>
+            <artifactId>feign-form</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/de.christophkraemer/rhino-script-engine -->
         <dependency>
             <groupId>de.christophkraemer</groupId>

@@ -14,13 +14,9 @@ import java.util.concurrent.TimeUnit;
 
 public class FeignUtil {
 
-//    private static String ruleURL = PropUtil.getValue("sys.properties","rule.url");
     private static String ruleURL = "";
-//    private static String hisApiURL = PropUtil.getValue("sys.properties","hisAPI.url");
     private static String hisApiURL = "";
-//    private static String HdbsURL = PropUtil.getValue("sys.properties","hdbs.url");
     private static String HdbsURL = "";
-//    private static String srcURL = PropUtil.getValue("sys.properties","src.url");
     private static String srcURL = "";
     private static Request.Options defaultOptions = new Request.Options(1, TimeUnit.SECONDS,3,TimeUnit.SECONDS,false);
     private static JsonDecode jsonDecode = new JsonDecode();
@@ -110,12 +106,12 @@ public class FeignUtil {
      * @return 原始返回值
      */
     public static String postWithForm(String url,String path,Map<String,?> param){
-        com.nykj.sch.service.remoteInvoke.StanderInvoke target = Feign.builder()
+        StanderInvoke target = Feign.builder()
                 .decoder(stringDecoder)
                 .logger(new Logger.ErrorLogger())
                 .options(defaultOptions)
                 .logLevel(Logger.Level.FULL)
-                .target(com.nykj.sch.service.remoteInvoke.StanderInvoke.class, url);
+                .target(StanderInvoke.class, url);
         return target.postWithForm(path,param);
     }
 

@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+spring:
+  kafka:
+    consumer:
+      auto-commit-interval: 1000
+      bootstrap-servers: 10.1.2.64:9092,10.1.2.74:9092,10.1.2.75:9092
+      group-id: validate1
+
+  redis:
+    sentinel:
+      nodes: 10.1.2.101:26379,10.1.2.102:26379,10.1.2.103:26379
+      master: Sentinel4test
+      password: M0xH5kL01SPF
+    database: 2
